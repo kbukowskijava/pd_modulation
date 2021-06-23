@@ -2,12 +2,12 @@
  * modulation.c
  *
  *  Created on: 23.06.2021
- *      Author: Jakub Giszka
+ *      Author: Kacper Bukowski
+ *  Github: https://github.com/kbukowskijava/pd_modulation.git
  */
 #include "pdsp/pdsp.h"
 #include "processing/modulation.h"
 
-// Inicjalizacja modulatora
 void MOD_ANALOG_Init(MOD_ANALOG_t *hCfg, OSC_Cfg_t *hOscCfg, MOD_ANALOG_Type_t type,
                    float carrierAmplitude, float carrierFrequency, float k){
 		hCfg->type = type;
@@ -74,7 +74,6 @@ void MOD_BINARY_Init(MOD_BINARY_t *hCfg, OSC_Cfg_t *hOscCfg, MOD_BINARY_Type_t t
 
 				   }
 
-// Wyznaczenie wartości rzeczywistej próbki w wyrażonej w [V]
 float MOD_ANALOG_GetValueF(MOD_ANALOG_t * hCfg, float message){
     float y;
     if (hCfg->type == MOD_AM)
@@ -134,7 +133,6 @@ float MOD_BINARY_GetValueF(MOD_BINARY_t * hCfg, uint8_t symbol){
 	return y;
 }
 
-// Wyznaczenie wartości próbki w wyrażonej w bitach
 channel_t MOD_ANALOG_GetSampleF(MOD_ANALOG_t * hCfg, float message){
 	 return (channel_t) ((MOD_ANALOG_GetValueF(hCfg, message)) / PDSP_CODEC_mVres);
 }
