@@ -2,7 +2,7 @@
  * modulation.c
  *
  *  Created on: 23.06.2021
- *      Author: Kacper Bukowski
+ *  Author: Kacper Bukowski
  *  Github: https://github.com/kbukowskijava/pd_modulation.git
  */
 #include "pdsp/pdsp.h"
